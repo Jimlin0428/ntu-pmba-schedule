@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@source "../index.html";
+@source "./main.tsx";
+@source "./App.tsx";
+@source "./components/ClassSelector.tsx";
+@source "./components/CourseCard.tsx";
+@source "./components/DayCell.tsx";
+@source "./components/WeekendSchedule.tsx";
+
+@theme {
+  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --color-ntu-50: #ecfdf5;
+  --color-ntu-100: #d1fae5;
+  --color-ntu-600: #0d6b52;
+  --color-ntu-700: #0a5542;
+  --color-ntu-800: #084434;
+}
+
+body {
+  @apply min-h-screen bg-zinc-900 text-white antialiased;
+}

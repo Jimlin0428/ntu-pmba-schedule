@@ -1,0 +1,141 @@
+[
+  {
+    "date": "6月27日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
+  },
+  {
+    "date": "6月28日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+  },
+  {
+    "date": "7月4日",
+    "day": "Sat",
+    "courses": [{ "name": "PM 新生訓練", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  },
+  {
+    "date": "7月5日",
+    "day": "Sun",
+    "courses": [{ "name": "PM 新生訓練", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  },
+  {
+    "date": "7月11日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
+  },
+  {
+    "date": "7月12日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+  },
+  { "date": "7月18日", "day": "Sat", "courses": [] },
+  { "date": "7月19日", "day": "Sun", "courses": [] },
+  {
+    "date": "7月25日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+  },
+  {
+    "date": "7月26日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+  },
+  {
+    "date": "8月1日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "何耕宇", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+  },
+  {
+    "date": "8月2日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "王衍智", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+  },
+  {
+    "date": "8月8日",
+    "day": "Sat",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "竹北 107", "classType": "all" }]
+  },
+  { "date": "8月9日", "day": "Sun", "courses": [] },
+  {
+    "date": "8月15日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "何耕宇", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+  },
+  {
+    "date": "8月16日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "王衍智", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+  },
+  { "date": "8月22日", "day": "Sat", "courses": [] },
+  {
+    "date": "8月23日",
+    "day": "Sun",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "台北 311", "classType": "all" }]
+  },
+  {
+    "date": "8月29日",
+    "day": "Sat",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "台北 611", "classType": "all" }]
+  },
+  {
+    "date": "8月30日",
+    "day": "Sun",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 6, "classroom": "台北 311", "classType": "all" }]
+  },
+  {
+    "date": "9月5日",
+    "day": "Sat",
+    "courses": [
+      { "name": "財務管理 A", "teacher": "何耕宇", "hours": 7, "classroom": "台北 311", "classType": "A" },
+      { "name": "財務管理 B", "teacher": "王衍智", "hours": 7, "classroom": "台北 511", "classType": "B" }
+    ]
+  },
+  {
+    "date": "9月6日",
+    "day": "Sun",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "台北 311", "classType": "all" }]
+  },
+  {
+    "date": "9月12日",
+    "day": "Sat",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "竹北 107", "classType": "all" }]
+  },
+  { "date": "9月13日", "day": "Sun", "courses": [] },
+  {
+    "date": "9月19日",
+    "day": "Sat",
+    "courses": [{ "name": "財務管理 A", "teacher": "何耕宇", "hours": 6, "classroom": "台北 511", "classType": "A" }]
+  },
+  {
+    "date": "9月20日",
+    "day": "Sun",
+    "courses": [{ "name": "財務管理 B", "teacher": "王衍智", "hours": 6, "classroom": "台北 311", "classType": "B" }]
+  },
+  {
+    "date": "9月26日",
+    "day": "Sat",
+    "courses": [{ "name": "中秋連假", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  },
+  {
+    "date": "9月27日",
+    "day": "Sun",
+    "courses": [{ "name": "中秋連假", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  },
+  {
+    "date": "10月3日",
+    "day": "Sat",
+    "courses": [{ "name": "行銷管理", "teacher": "", "hours": 7, "classroom": "竹北 107", "classType": "all" }]
+  },
+  { "date": "10月4日", "day": "Sun", "courses": [] },
+  {
+    "date": "10月10日",
+    "day": "Sat",
+    "courses": [{ "name": "雙十連假", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  },
+  {
+    "date": "10月11日",
+    "day": "Sun",
+    "courses": [{ "name": "雙十連假", "teacher": "", "hours": 0, "classroom": "", "classType": "all", "isSpecial": true }]
+  }
+]
