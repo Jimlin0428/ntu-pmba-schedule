@@ -8,12 +8,12 @@ interface ChecklistItem {
 }
 
 const initialItems: ChecklistItem[] = [
-  { id: "1", title: "完成網路報到", deadline: "2026-05-28", timeStr: "5/26(一) 10:00 ～ 5/28(三) 24:00" },
+  { id: "1", title: "完成網路報到", deadline: "2026-05-28", timeStr: "5/26(二) 10:00 ～ 5/28(四) 24:00" },
   { id: "2", title: "預約並完成健康檢查 (報告需10-12工作天)", deadline: "2026-06-22", timeStr: "即日起 ～ 6/22" },
   { id: "3", title: "O’camp 繳費截止", deadline: "2026-06-05", timeStr: "6/5(五) 截止" },
-  { id: "4", title: "帳號開通、填寫健康資料與生活型態問卷", deadline: "2026-06-09", timeStr: "6/9(一) 起" },
+  { id: "4", title: "帳號開通、填寫健康資料與生活型態問卷", deadline: "2026-06-09", timeStr: "6/9(二) 起" },
   { id: "5", title: "繳交暑期學雜費 ($116,500 元)", deadline: "2026-06-22", timeStr: "6/9 ～ 6/22" },
-  { id: "6", title: "完成線上註冊並上傳所有證明 (身分證、學歷、健檢表等)", deadline: "2026-06-22", timeStr: "6/22(日) 17:00 前 ⚠️" },
+  { id: "6", title: "完成線上註冊並上傳所有證明 (身分證、學歷、健檢表等)", deadline: "2026-06-22", timeStr: "6/22(一) 17:00 前 ⚠️" },
 ];
 
 export default function RegistrationChecklist() {
