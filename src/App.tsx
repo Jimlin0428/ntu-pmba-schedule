@@ -1,3 +1,4 @@
+import RegistrationChecklist from "./components/RegistrationChecklist";
 import { useMemo, useState } from "react";
 import ClassSelector from "./components/ClassSelector";
 import WeekendSchedule from "./components/WeekendSchedule";
@@ -81,6 +82,7 @@ export default function App() {
         </section>
 
         <section aria-live="polite">
+          <RegistrationChecklist />
           <WeekendSchedule weekends={weekends} />
         </section>
 
