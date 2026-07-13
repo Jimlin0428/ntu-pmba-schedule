@@ -2,42 +2,42 @@
   {
     "date": "6月27日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
   },
   {
     "date": "6月28日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "7月11日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "A" }]
   },
   {
     "date": "7月12日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "7月25日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
   },
   {
     "date": "7月26日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(7)", "teacher": "廖咸興", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "8月1日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(7)", "teacher": "何耕宇", "hours": 7, "classroom": "台北 511", "classType": "A" }]
   },
   {
     "date": "8月2日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(7)", "teacher": "王衍智", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "8月8日",
@@ -47,12 +47,12 @@
   {
     "date": "8月15日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(7)", "teacher": "何耕宇", "hours": 7, "classroom": "台北 511", "classType": "A" }]
   },
   {
     "date": "8月16日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(7)", "teacher": "王衍智", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "8月23日",
@@ -65,45 +65,54 @@
   {
     "date": "8月29日",
     "day": "Sat",
-    "courses": [{ "name": "行銷管理", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 611", "classType": "ALL" }]
+    "courses": [{ "name": "行銷管理(7)", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 611", "classType": "ALL" }]
   },
   {
     "date": "8月30日",
     "day": "Sun",
-    "courses": [{ "name": "行銷管理", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 311", "classType": "ALL" }]
+    "courses": [
+      { "name": "行銷管理(6)", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 311", "classType": "ALL" },
+      { "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 107", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "9月5日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+    "courses": [
+      { "name": "財務管理 A(7)", "teacher": "何耕宇", "hours": 7, "classroom": "台北 311", "classType": "A" },
+      { "name": "財務管理 B(7)", "teacher": "王衍智", "hours": 7, "classroom": "台北 511", "classType": "B" }
+    ]
   },
   {
     "date": "9月6日",
     "day": "Sun",
-    "courses": [{ "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 107", "classType": "PMLBA" }]
+    "courses": [
+      { "name": "行銷管理(7)", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 311", "classType": "ALL" },
+      { "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 107", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "9月12日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [
+      { "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 105", "classType": "PMLBA" },
+      { "name": "行銷管理(7)", "teacher": "黃恆獎", "hours": 7, "classroom": "竹北 107", "classType": "ALL" }
+    ]
   },
-  {
+    {
     "date": "9月13日",
     "day": "Sun",
-    "courses": [
-      { "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 107", "classType": "PMLBA" },
-      { "name": "行銷管理", "teacher": "黃恆獎", "hours": 7, "classroom": "台北 311", "classType": "ALL" }
-    ]
+    "courses": [ { "name": "企業相關民刑法專題", "teacher": "顏佑紘/洪士軒", "hours": 7, "classroom": "竹北 107", "classType": "PMLBA" }]
   },
   {
     "date": "9月19日",
     "day": "Sat",
-    "courses": [{ "name": "財務管理 A", "teacher": "廖咸興", "hours": 7, "classroom": "台北 511", "classType": "A" }]
+    "courses": [{ "name": "財務管理 A(6)", "teacher": "何耕宇", "hours": 7, "classroom": "台北 511", "classType": "A" }]
   },
   {
     "date": "9月20日",
     "day": "Sun",
-    "courses": [{ "name": "財務管理 B", "teacher": "王衍智/廖咸興/何耕宇", "hours": 7, "classroom": "台北 311", "classType": "B" }]
+    "courses": [{ "name": "財務管理 B(6)", "teacher": "王衍智", "hours": 7, "classroom": "台北 311", "classType": "B" }]
   },
   {
     "date": "9月26日",
@@ -118,7 +127,7 @@
   {
     "date": "10月3日",
     "day": "Sat",
-    "courses": [{ "name": "行銷管理", "teacher": "黃恆獎", "hours": 7, "classroom": "竹北 107", "classType": "ALL" }]
+    "courses": [{ "name": "行銷管理(7)", "teacher": "黃恆獎", "hours": 7, "classroom": "竹北 107", "classType": "ALL" }]
   },
   {
     "date": "10月4日",
