@@ -597,6 +597,22 @@ export const scheduleData: ScheduleDay[] = [
     ]
   },
   {
+    "date": "11月28日",
+    "day": "Sat",
+    "grade": "114",
+    "semester": "1151",
+    "courses": [
+      {
+        "name": "選舉放假",
+        "teacher": "",
+        "hours": 0,
+        "classroom": "",
+        "classType": "ALL",
+        "isHoliday": true
+      }
+    ]
+  },
+  {
     "date": "11月29日",
     "day": "Sun",
     "grade": "115",
