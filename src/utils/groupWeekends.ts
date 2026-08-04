@@ -1,56 +1,44 @@
 import type { ScheduleDay, Weekend } from "../types";
 
 /**
- * 將篩選後的 ScheduleDay[] 依週末（週六+週日）進行分組。
- * 如果某個週末只有其中一天有課，另一天會補上空的 ScheduleDay 結構以保持雙欄對齊。
+ * 將篩選後的 ScheduleDay[] 正確依「週末（週六與相鄰週日）」進行分組。
  */
 export function groupIntoWeekends(days: ScheduleDay[]): Weekend[] {
-  const map = new Map<string, { saturday?: ScheduleDay; sunday?: ScheduleDay }>();
+  const result: Weekend[] = [];
+  const processedIndices = new Set<number>();
 
-  days.forEach((day) => {
-    // 假設 date 格式為 "6月27日" 或 "10月4日" 等
-    // 這裡用簡易邏輯群組，如果已經有對應的 weekend key 就放進去
-    const key = day.date; 
+  for (let i = 0; i < days.length; i++) {
+    if (processedIndices.has(i)) continue;
 
-    if (!map.has(key)) {
-      map.set(key, {});
-    }
+    const currentDay = days[i];
 
-    const current = map.get(key)!;
-    if (day.day === "Sat") {
-      current.saturday = day;
-    } else if (day.day === "Sun") {
-      current.sunday = day;
-    }
-  });
-
-  // 整理成 Weekend 陣列
-  const weekends: Weekend[] = [];
-  
-  // 依原始日期順序組合
-  days.forEach((day) => {
-    // 透過比對確保不重複加入已處理的週末
-    const existing = map.get(day.date);
-    if (existing) {
-      weekends.push({
-        saturday: existing.saturday || {
-          date: day.date,
-          day: "Sat",
-          grade: day.grade,
-          semester: day.semester,
-          courses: [],
-        },
-        sunday: existing.sunday || {
-          date: day.date,
-          day: "Sun",
-          grade: day.grade,
-          semester: day.semester,
-          courses: [],
-        },
+    if (currentDay.day === "Sat") {
+      // 檢查下一筆是否為對應的週日
+      const nextDay = days[i + 1];
+      if (nextDay && nextDay.day === "Sun") {
+        result.push({
+          saturday: currentDay,
+          sunday: nextDay,
+        });
+        processedIndices.add(i);
+        processedIndices.add(i + 1);
+      } else {
+        // 只有週六，無對應週日
+        result.push({
+          saturday: currentDay,
+          sunday: undefined,
+        });
+        processedIndices.add(i);
+      }
+    } else if (currentDay.day === "Sun") {
+      // 獨立出現的週日（前一天無週六）
+      result.push({
+        saturday: undefined,
+        sunday: currentDay,
       });
-      map.delete(day.date);
+      processedIndices.add(i);
     }
-  });
+  }
 
-  return weekends;
+  return result;
 }
