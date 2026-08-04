@@ -56,7 +56,7 @@ export default function WeekendSchedule({
           >
             {/* 週末卡片標頭 */}
             <div className="border-b border-zinc-800 bg-zinc-800/40 px-4 py-2 text-xs font-semibold text-zinc-400">
-              週末對照：{satDate || ""} {sunDate ? `/ ${sunDate}` : ""}
+              週末對照：{satDate || "無"} {sunDate ? `/ ${sunDate}` : ""}
             </div>
 
             {/* 雙欄對照區域 */}
@@ -64,7 +64,7 @@ export default function WeekendSchedule({
               {/* 週六 */}
               <div className="flex flex-col gap-2">
                 <div className="text-xs font-bold text-emerald-500">
-                  週六 ({weekend.saturday?.date || "無課程"})
+                  週六 {satDate ? `(${satDate})` : ""}
                 </div>
                 {weekend.saturday?.courses && weekend.saturday.courses.length > 0 ? (
                   weekend.saturday.courses.map((course: Course, cIdx: number) => (
@@ -80,7 +80,7 @@ export default function WeekendSchedule({
               {/* 週日 */}
               <div className="flex flex-col gap-2">
                 <div className="text-xs font-bold text-emerald-500">
-                  週日 ({weekend.sunday?.date || "無課程"})
+                  週日 {sunDate ? `(${sunDate})` : ""}
                 </div>
                 {weekend.sunday?.courses && weekend.sunday.courses.length > 0 ? (
                   weekend.sunday.courses.map((course: Course, cIdx: number) => (
