@@ -1,151 +1,104 @@
-import React from "react";
-import type { WeekendRow } from "../utils/groupWeekends";
-import DayCell from "./DayCell";
+import type { Weekend, Course } from "../types";
 
-function weekendRangeLabel(row: WeekendRow): string {
-  const sat = row.saturday.date;
-  const sun = row.sunday.date;
-  if (sat !== "\u2014" && sun !== "\u2014") return `${sat} \u2013 ${sun}`;
-  if (sat !== "\u2014") return sat;
-  return sun;
+function CourseCard({ course }: { course: Course }) {
+  const isSpecial = course.isSpecial || course.isHoliday;
+
+  return (
+    <div
+      className={`rounded-md border p-3 transition-colors ${
+        isSpecial
+          ? "border-red-900/60 bg-red-950/30 text-red-200"
+          : "border-zinc-700/80 bg-zinc-800/80 hover:border-zinc-600"
+      }`}
+    >
+      <div className="flex items-start justify-between gap-2">
+        <h4 className="text-sm font-semibold text-white">{course.name}</h4>
+        {course.hours > 0 && (
+          <span className="shrink-0 rounded bg-zinc-700/80 px-1.5 py-0.5 text-[10px] text-zinc-300">
+            {course.hours}h
+          </span>
+        )}
+      </div>
+
+      {(course.teacher || course.classroom) && (
+        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-400">
+          {course.teacher && <span>👨‍🏫 {course.teacher}</span>}
+          {course.classroom && <span>📍 {course.classroom}</span>}
+        </div>
+      )}
+    </div>
+  );
 }
 
-type Props = {
-  weekends: WeekendRow[];
-};
-
-export default function WeekendSchedule({ weekends }: Props) {
-  
-  // 📅 核心功能：動態將目前的 weekends 資料打包下載為 .ics 檔案
-  const handleDownloadICS = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault(); // 阻斷預設行為，防止行動端重複觸發
-    
-    let icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//NTU PMBA//Schedule//ZH",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-      "X-WR-CALNAME:台大115級PMBA課表",
-      "X-WR-TIMEZONE:Asia/Taipei"
-    ];
-
-    // 遍歷目前的週六日資料
-    weekends.forEach((row) => {
-      const days = [row.saturday, row.sunday];
-      
-      days.forEach((day) => {
-        // 排除無課程、連假或空檔的日子，只抓有真實課程的 row
-        if (!day || day.date === "\u2014" || !day.courses || day.courses.length === 0) return;
-
-        day.courses.forEach((course) => {
-          // 排除無課名或特殊放假字眼
-          if (!course.name || course.name.includes("連假") || course.name.includes("放假")) return;
-
-          // 解析日期：將 "6月27日" 這種格式轉換成 2026 年的日曆專用八碼格式 20260627
-          const match = day.date.match(/(\d+)月(\d+)日/);
-          if (!match) return;
-          const month = match[1].padStart(2, "0");
-          const dateStr = match[2].padStart(2, "0");
-          const cleanDate = `2026${month}${dateStr}`;
-
-          // 判斷下課時間（時數為 6 小時的課到 16:00，其餘預設 17:00）
-          const endTime = course.hours === 6 ? "160000" : "170000";
-          
-          // 組合教授名稱
-          const teacherInfo = course.teacher ? ` (${course.teacher})` : "";
-
-          icsContent.push("BEGIN:VEVENT");
-          icsContent.push(`SUMMARY:${course.name}${teacherInfo}`);
-          icsContent.push(`DTSTART;TZID=Asia/Taipei:${cleanDate}T090000`);
-          icsContent.push(`DTEND;TZID=Asia/Taipei:${cleanDate}T${endTime}`);
-          if (course.classroom) {
-            icsContent.push(`LOCATION:${course.classroom}`);
-          }
-          icsContent.push("END:VEVENT");
-        });
-      });
-    });
-
-    icsContent.push("END:VCALENDAR");
-
-    // 轉為 Blob 並觸發網頁下載
-    const blob = new Blob([icsContent.join("\r\n")], { type: "text/calendar;charset=utf-8" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "NTU_PMBA_Schedule.ics";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
+export default function WeekendSchedule({
+  weekends,
+}: {
+  weekends: Weekend[];
+}) {
   if (weekends.length === 0) {
     return (
-      <p className="rounded-lg border border-dashed border-zinc-600/60 bg-zinc-800/30 px-4 py-10 text-center text-sm text-[#9CA3AF]">
-        {"\u6b64\u73ed\u7d1a\u76ee\u524d\u6c92\u6709\u8ab2\u7a0b\u8cc7\u8a0a"}
-      </p>
+      <div className="mt-8 rounded-lg border border-dashed border-zinc-700 p-8 text-center text-zinc-400">
+        目前選取的條件下沒有排定課程
+      </div>
     );
   }
 
   return (
-    <div className="space-y-4">
-      {/* 🚀 下載日曆功能列：相容 LINE 瀏覽器的標準 button 元素，同時綁定 onClick 與 onTouchEnd */}
-      <div className="flex justify-end px-1">
-        <button
-          type="button"
-          onClick={handleDownloadICS}
-          onTouchEnd={handleDownloadICS}
-          className="w-full sm:w-auto px-4 py-2 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white text-xs font-medium rounded-lg shadow transition-all flex items-center justify-center gap-1.5 border border-emerald-500/30"
-        >
-          📅 匯入此班級 Google 日曆 (.ics)
-        </button>
-      </div>
+    <div className="mt-4 flex flex-col gap-4">
+      {weekends.map((weekend, idx) => {
+        const satDate = weekend.saturday?.date;
+        const sunDate = weekend.sunday?.date;
 
-      {/* Desktop: 雙欄週末對照 */}
-      <div className="hidden lg:block">
-        <div className="mb-3 grid grid-cols-2 gap-4 border-b border-zinc-700/80 pb-2">
-          <p className="text-center text-xs font-semibold tracking-wide text-[#9CA3AF]">
-            {"\u661f\u671f\u516d"}
-          </p>
-          <p className="text-center text-xs font-semibold tracking-wide text-[#9CA3AF]">
-            {"\u661f\u671f\u65e5"}
-          </p>
-        </div>
-        <ul className="space-y-3">
-          {weekends.map((row) => (
-            <li
-              key={row.key}
-              className="grid grid-cols-2 gap-4 rounded-lg border border-zinc-700/60 bg-zinc-800/40 p-3"
-            >
-              <DayCell day={row.saturday} compactHeader />
-              <DayCell day={row.sunday} compactHeader />
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Mobile: 單欄時間軸 */}
-      <ul className="space-y-4 lg:hidden">
-        {weekends.map((row) => (
-          <li
-            key={row.key}
-            className="overflow-hidden rounded-lg border border-zinc-700/60 bg-zinc-800/50"
+        return (
+          <div
+            key={idx}
+            className="overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900/60"
           >
-            <div className="border-b border-zinc-700/50 px-3 py-2">
-              <p className="text-[11px] font-medium text-[#9CA3AF]">
-                {weekendRangeLabel(row)}
-              </p>
+            {/* 週末卡片標頭 */}
+            <div className="border-b border-zinc-800 bg-zinc-800/40 px-4 py-2 text-xs font-semibold text-zinc-400">
+              週末對照：{satDate || ""} {sunDate ? `/ ${sunDate}` : ""}
             </div>
-            <div className="space-y-3 p-3">
-              <DayCell day={row.saturday} compactHeader />
-              <div className="border-t border-zinc-700/40 pt-3">
-                <div className="pt-1">
-                  <DayCell day={row.sunday} compactHeader />
+
+            {/* 雙欄對照區域 */}
+            <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2">
+              {/* 週六 */}
+              <div className="flex flex-col gap-2">
+                <div className="text-xs font-bold text-emerald-500">
+                  週六 ({weekend.saturday?.date || "無課程"})
                 </div>
+                {weekend.saturday?.courses && weekend.saturday.courses.length > 0 ? (
+                  weekend.saturday.courses.map((course: Course, cIdx: number) => (
+                    <CourseCard key={cIdx} course={course} />
+                  ))
+                ) : (
+                  <div className="rounded-md border border-zinc-800/60 bg-zinc-900/30 p-3 text-xs text-zinc-500">
+                    本日無課程安排
+                  </div>
+                )}
+              </div>
+
+              {/* 週日 */}
+              <div className="flex flex-col gap-2">
+                <div className="text-xs font-bold text-emerald-500">
+                  週日 ({weekend.sunday?.date || "無課程"})
+                </div>
+                {weekend.sunday?.courses && weekend.sunday.courses.length > 0 ? (
+                  weekend.sunday.courses.map((course: Course, cIdx: number) => (
+                    <CourseCard key={cIdx} course={course} />
+                  ))
+                ) : (
+                  <div className="rounded-md border border-zinc-800/60 bg-zinc-900/30 p-3 text-xs text-zinc-500">
+                    本日無課程安排
+                  </div>
+                )}
               </div>
             </div>
-          </li>
-        ))}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
       </ul>
     </div>
   );
