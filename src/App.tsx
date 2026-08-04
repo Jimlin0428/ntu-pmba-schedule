@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ClassSelector from "./components/ClassSelector";
 import WeekendSchedule from "./components/WeekendSchedule";
 import { scheduleData } from "./data/scheduleData";
-import type { ClassGroup } from "./types";
+import type { ClassGroup, Grade, Semester } from "./types";
 import { filterAllDaysByClass } from "./utils/filterSchedule";
 import { groupIntoWeekends } from "./utils/groupWeekends";
 
@@ -23,30 +23,38 @@ function LegendItem({
 }
 
 export default function App() {
-  // 1. 將預設初始狀態設定為最新的組合型別 "PMBA_A"
+  // 1. 新增 Grade (年級) 與 Semester (學期) 的 State 控制，預設 115 級 1150 學期
+  const [selectedGrade, setSelectedGrade] = useState<Grade>("115");
+  const [selectedSemester, setSelectedSemester] = useState<Semester>("1150");
   const [selectedClass, setSelectedClass] = useState<ClassGroup>("PMBA_A");
 
+  // 2. 將選取的 年級、學期、班別 帶入過濾函式
   const weekends = useMemo(() => {
-    const filtered = filterAllDaysByClass(scheduleData, selectedClass);
+    const filtered = filterAllDaysByClass(
+      scheduleData,
+      selectedClass,
+      selectedGrade,
+      selectedSemester,
+    );
     return groupIntoWeekends(filtered);
-  }, [selectedClass]);
+  }, [selectedClass, selectedGrade, selectedSemester]);
 
-  // 2. 讓下方的小文字提示根據切換的學程與班別動態調整（直接使用清晰的中文）
+  // 3. 動態提示文字
   const legendItems = useMemo(() => {
     if (selectedClass.startsWith("PMBA")) {
-      return selectedClass === "PMBA_A" 
-        ? "財務 A · 行銷（不分班） · 連假" 
-        : "財務 B · 行銷（不分班） · 連假";
+      return selectedClass === "PMBA_A"
+        ? "財務/策略 A · 行銷/組織（不分班） · 連假"
+        : "財務/策略 B · 行銷/組織（不分班） · 連假";
     }
     if (selectedClass.startsWith("PMLBA")) {
       return selectedClass === "PMLBA_A"
-        ? "財務 A · 民刑法專題 · 連假"
-        : "財務 B · 民刑法專題 · 連假";
+        ? "財務/策略 A · 法律專題 · 連假"
+        : "財務/策略 B · 法律專題 · 連假";
     }
     if (selectedClass.startsWith("PMBM")) {
       return selectedClass === "PMBM_A"
-        ? "財務 A · 行銷（不分班） · 連假"
-        : "財務 B · 行銷（不分班） · 連假";
+        ? "財務/策略 A · 生醫專題 · 連假"
+        : "財務/策略 B · 生醫專題 · 連假";
     }
     return "";
   }, [selectedClass]);
@@ -58,7 +66,6 @@ export default function App() {
           <p className="text-xs font-medium tracking-wide text-emerald-600/90 sm:text-sm">
             National Taiwan University
           </p>
-          {/* 3. 將大標題由「台大 PMBA 課表」改為更包容全體的「台大 PM 課程行事曆」 */}
           <h1 className="mt-0.5 text-xl font-bold tracking-tight text-white sm:text-2xl">
             台大 PM 課程行事曆
           </h1>
@@ -69,32 +76,77 @@ export default function App() {
       </header>
 
       <main className="mx-auto max-w-6xl px-4 py-4 sm:px-6 sm:py-5">
-        <section className="mb-4 rounded-lg border border-zinc-700/70 bg-zinc-800/60 px-3 py-3 sm:px-4">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-            <div className="min-w-0">
-              <h2 className="text-sm font-semibold text-white">
-                選擇班別 / 學程
-              </h2>
-              <p className="mt-0.5 text-xs text-[#9CA3AF]">{legendItems}</p>
-              <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
-                <LegendItem
-                  swatch="bg-red-900/80 ring-1 ring-red-800/60"
-                  label="連假／特殊"
-                />
-                <LegendItem
-                  swatch="bg-amber-500"
-                  label="竹北上課"
-                />
-                <LegendItem
-                  swatch="bg-amber-900/50 ring-1 ring-amber-800/40"
-                  label="不分班"
-                />
+        {/* 控制面板卡片 */}
+        <section className="mb-4 rounded-lg border border-zinc-700/70 bg-zinc-800/60 p-3 sm:p-4">
+          <div className="flex flex-col gap-4">
+            
+            {/* 第一列：年級與學期切換鍵 */}
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-zinc-700/60 pb-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-zinc-400">屆別：</span>
+                {(["115", "114"] as Grade[]).map((g) => (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => setSelectedGrade(g)}
+                    className={`rounded-md px-3 py-1 text-xs font-bold transition-colors ${
+                      selectedGrade === g
+                        ? "bg-emerald-600 text-white"
+                        : "bg-zinc-700/80 text-zinc-400 hover:bg-zinc-700 hover:text-white"
+                    }`}
+                  >
+                    {g} 級
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-zinc-400">學期：</span>
+                {(["1150", "1151"] as Semester[]).map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    onClick={() => setSelectedSemester(s)}
+                    className={`rounded-md px-3 py-1 text-xs font-bold transition-colors ${
+                      selectedSemester === s
+                        ? "bg-emerald-600 text-white"
+                        : "bg-zinc-700/80 text-zinc-400 hover:bg-zinc-700 hover:text-white"
+                    }`}
+                  >
+                    {s} 學期
+                  </button>
+                ))}
               </div>
             </div>
-            <ClassSelector
-              value={selectedClass}
-              onChange={setSelectedClass}
-            />
+
+            {/* 第二列：班別 / 學程選擇鍵 */}
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+              <div className="min-w-0">
+                <h2 className="text-sm font-semibold text-white">
+                  選擇班別 / 學程
+                </h2>
+                <p className="mt-0.5 text-xs text-[#9CA3AF]">{legendItems}</p>
+                <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1">
+                  <LegendItem
+                    swatch="bg-red-900/80 ring-1 ring-red-800/60"
+                    label="連假／特殊"
+                  />
+                  <LegendItem
+                    swatch="bg-amber-500"
+                    label="竹北上課"
+                  />
+                  <LegendItem
+                    swatch="bg-amber-900/50 ring-1 ring-amber-800/40"
+                    label="不分班"
+                  />
+                </div>
+              </div>
+              <ClassSelector
+                value={selectedClass}
+                onChange={setSelectedClass}
+              />
+            </div>
+
           </div>
         </section>
 
