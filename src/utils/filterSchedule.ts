@@ -4,6 +4,7 @@ export function courseMatchesClass(
   course: Course,
   selectedClass: ClassGroup,
 ): boolean {
+  // 1. 放假、連假或標示全體 (ALL / all)，大家都看得到
   if (
     course.isSpecial ||
     course.classType === "ALL" ||
@@ -14,16 +15,20 @@ export function courseMatchesClass(
     return true;
   }
 
+  // 解析當前選中的是哪個學程、哪一個班（例如選 "PMBA_A" 會拆出 "PMBA" 與 "A"）
   const [targetProgram, targetClass] = selectedClass.split("_");
 
+  // 2. 財務管理或策略管理：依據 A 班 / B 班 進行篩選
   if (course.name.includes("財務管理") || course.name.includes("策略管理")) {
     return course.classType === targetClass;
   }
 
+  // 3. 行銷管理：PMBA 和 PMBM 全體同學都要上 (不分 A/B 班都顯示)
   if (course.name.includes("行銷管理")) {
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 
+  // 4. 通用比對：檢查課程的 classType 是否匹配學程 (PMBA/PMLBA/PMBM) 或 班別 (A/B)
   if (course.classType === targetProgram || course.classType === targetClass) {
     return true;
   }
@@ -31,6 +36,7 @@ export function courseMatchesClass(
   return false;
 }
 
+/** 依班別過濾當日課程 */
 export function filterDayByClass(
   day: ScheduleDay,
   selectedClass: ClassGroup,
@@ -43,7 +49,7 @@ export function filterDayByClass(
   };
 }
 
-/** 依班別、年級、學期篩選所有日期 (帶有預設值以完全相容舊寫法) */
+/** 依班別、年級、學期篩選所有日期 (帶預設值，完全相容舊寫法) */
 export function filterAllDaysByClass(
   days: ScheduleDay[],
   selectedClass: ClassGroup,
@@ -52,7 +58,7 @@ export function filterAllDaysByClass(
 ): ScheduleDay[] {
   return days
     .filter((day) => {
-      // 如果 day 資料有 grade 與 semester 屬性，就進行比對
+      // 進行年級與學期比對，如果資料缺少該欄位則自動通過
       const matchGrade = day.grade ? day.grade === selectedGrade : true;
       const matchSemester = day.semester ? day.semester === selectedSemester : true;
       return matchGrade && matchSemester;
