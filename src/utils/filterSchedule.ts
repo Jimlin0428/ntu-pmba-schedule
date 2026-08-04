@@ -22,12 +22,26 @@ export function courseMatchesClass(
 ): boolean {
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 1. 行銷管理：只有 PMBA 與 PMBM 可以看，PMLBA 強制剔除！
+  // 🚨【最高優先級 1】放假、連假、選舉、標示全體 (ALL / all) 或 isHoliday，大家都看得到！
+  if (
+    course.isSpecial ||
+    course.isHoliday ||
+    course.classType === "ALL" ||
+    course.classType === "all" ||
+    course.name.includes("連假") ||
+    course.name.includes("放假") ||
+    course.name.includes("選舉") ||
+    course.name.includes("節")
+  ) {
+    return true;
+  }
+
+  // 2. 行銷管理：只有 PMBA 與 PMBM 可以看，PMLBA 強制剔除！
   if (course.name.includes("行銷管理")) {
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 
-  // 2. 法律/民刑法/行政法專題：只有 PMLBA 可以看，其他學程剔除！
+  // 3. 法律/民刑法/行政法專題：只有 PMLBA 可以看，其他學程剔除！
   if (
     course.name.includes("民刑法") ||
     course.name.includes("行政法") ||
@@ -35,17 +49,6 @@ export function courseMatchesClass(
     (course.name.includes("專題") && course.classType === "PMLBA")
   ) {
     return targetProgram === "PMLBA";
-  }
-
-  // 3. 放假、連假或標示全體 (ALL / all)
-  if (
-    course.isSpecial ||
-    course.classType === "ALL" ||
-    course.classType === "all" ||
-    course.name.includes("連假") ||
-    course.name.includes("放假")
-  ) {
-    return true;
   }
 
   // 4. 財務管理與策略管理：依據 A 班 / B 班 進行篩選
@@ -94,7 +97,6 @@ export function filterAllDaysByClass(
     })
     .map((day) => filterDayByClass(day, selectedClass))
     .filter((day) => day.courses.length > 0)
-    // 關鍵！依據月份與日期做時間序列排序，確保 1/2、1/3 自動排在 12 月之後！
     .sort((a, b) => {
       const weightA = getDateWeight(a.date, selectedSemester);
       const weightB = getDateWeight(b.date, selectedSemester);
