@@ -4,20 +4,10 @@ export function courseMatchesClass(
   course: Course,
   selectedClass: ClassGroup,
 ): boolean {
-  // 解析當前選中的是哪個學程（例如 "PMBA_A" 會拆出 "PMBA" 與 "A"）
+  // 解析當前選中的是哪個學程與班別（例如 "PMBM_A" 會拆出 targetProgram = "PMBM", targetClass = "A"）
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 1. 特殊規則：行銷管理只有 PMBA 與 PMBM 需要上，PMLBA 排除！
-  if (course.name.includes("行銷管理")) {
-    return targetProgram === "PMBA" || targetProgram === "PMBM";
-  }
-
-  // 2. 特殊規則：企業相關民刑法專題 / 法律專題 只有 PMLBA 需要上
-  if (course.name.includes("民刑法") || course.name.includes("行政法")) {
-    return targetProgram === "PMLBA";
-  }
-
-  // 3. 通用規則：放假、連假或標示全體 (ALL / all)，大家都看得到
+  // 1. 放假、連假或標示全體 (ALL / all)，大家都看得到
   if (
     course.isSpecial ||
     course.classType === "ALL" ||
@@ -28,13 +18,33 @@ export function courseMatchesClass(
     return true;
   }
 
-  // 4. 財務管理或策略管理：依據 A 班 / B 班 進行篩選
+  // 2. 特殊課程規則：行銷管理（只有 PMBA 與 PMBM 上，PMLBA 排除）
+  if (course.name.includes("行銷管理")) {
+    return targetProgram === "PMBA" || targetProgram === "PMBM";
+  }
+
+  // 3. 特殊課程規則：法律/民刑法/行政法專題（只有 PMLBA 上）
+  if (
+    course.name.includes("民刑法") ||
+    course.name.includes("行政法") ||
+    course.classType === "PMLBA"
+  ) {
+    return targetProgram === "PMLBA";
+  }
+
+  // 4. 財務管理與策略管理：依據 A 班 / B 班 進行篩選
   if (course.name.includes("財務管理") || course.name.includes("策略管理")) {
     return course.classType === targetClass;
   }
 
-  // 5. 一般課程比對：檢查 classType 是否符合當前學程 (PMBA/PMLBA/PMBM) 或 班別 (A/B)
-  if (course.classType === targetProgram || course.classType === targetClass) {
+  // 5. 學程專屬課程比對（如 classType 為 "PMBA", "PMBM", "PMLBA"）：
+  // 直接精準比對是否符合當前選取的學程
+  if (course.classType === targetProgram) {
+    return true;
+  }
+
+  // 6. 班別比對（如 classType 為 "A" 或 "B"）
+  if (course.classType === targetClass) {
     return true;
   }
 
