@@ -8,7 +8,6 @@ function getDateWeight(dateStr: string, semester: Semester): number {
   let month = parseInt(match[1], 10);
   const day = parseInt(match[2], 10);
 
-  // 在 1151 學期中，1 月是隔年的第一個月份，時間序應排在 12 月之後 (當作 13 月處理)
   if (semester === "1151" && month === 1) {
     month = 13;
   }
@@ -22,7 +21,7 @@ export function courseMatchesClass(
 ): boolean {
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 🚨【最高優先級 1】放假、連假、選舉、標示全體 (ALL / all) 或 isHoliday，大家都看得到！
+  // 🚨【最高優先級 1】所有放假、連假、國定假日、選舉，不論年級與班別，直接放行顯示！
   if (
     course.isSpecial ||
     course.isHoliday ||
@@ -30,8 +29,8 @@ export function courseMatchesClass(
     course.classType === "all" ||
     course.name.includes("連假") ||
     course.name.includes("放假") ||
-    course.name.includes("選舉") ||
-    course.name.includes("節")
+    course.name.includes("假") ||
+    course.name.includes("選舉")
   ) {
     return true;
   }
