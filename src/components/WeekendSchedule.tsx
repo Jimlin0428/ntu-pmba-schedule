@@ -99,7 +99,3 @@ export default function WeekendSchedule({
     </div>
   );
 }
-      </ul>
-    </div>
-  );
-}
