@@ -5,6 +5,7 @@ import { scheduleData } from "./data/scheduleData";
 import type { ClassGroup, Grade, Semester } from "./types";
 import { filterAllDaysByClass } from "./utils/filterSchedule";
 import { groupIntoWeekends } from "./utils/groupWeekends";
+import { downloadICS } from "./utils/exportCalendar";
 
 function LegendItem({
   swatch,
@@ -22,12 +23,10 @@ function LegendItem({
 }
 
 export default function App() {
-  // 1. 新增 Grade (年級) 與 Semester (學期) 的 State 控制，預設 115 級 1150 學期
   const [selectedGrade, setSelectedGrade] = useState<Grade>("115");
   const [selectedSemester, setSelectedSemester] = useState<Semester>("1150");
   const [selectedClass, setSelectedClass] = useState<ClassGroup>("PMBA_A");
 
-  // 2. 將選取的 年級、學期、班別 帶入過濾函式
   const weekends = useMemo(() => {
     const filtered = filterAllDaysByClass(
       scheduleData,
@@ -38,7 +37,6 @@ export default function App() {
     return groupIntoWeekends(filtered);
   }, [selectedClass, selectedGrade, selectedSemester]);
 
-  // 3. 動態提示文字
   const legendItems = useMemo(() => {
     if (selectedClass.startsWith("PMBA")) {
       return selectedClass === "PMBA_A"
@@ -61,16 +59,27 @@ export default function App() {
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
       <header className="border-b border-emerald-950/80 bg-zinc-900/95">
-        <div className="mx-auto max-w-6xl px-4 py-5 sm:px-6 sm:py-6">
-          <p className="text-xs font-medium tracking-wide text-emerald-600/90 sm:text-sm">
-            National Taiwan University
-          </p>
-          <h1 className="mt-0.5 text-xl font-bold tracking-tight text-white sm:text-2xl">
-            台大 PM 課程行事曆
-          </h1>
-          <p className="mt-1 text-xs text-[#9CA3AF] sm:text-sm">
-            週末雙欄對照 · 深色模式
-          </p>
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-5 sm:px-6 sm:py-6">
+          <div>
+            <p className="text-xs font-medium tracking-wide text-emerald-600/90 sm:text-sm">
+              National Taiwan University
+            </p>
+            <h1 className="mt-0.5 text-xl font-bold tracking-tight text-white sm:text-2xl">
+              台大 PM 課程行事曆
+            </h1>
+            <p className="mt-1 text-xs text-[#9CA3AF] sm:text-sm">
+              週末雙欄對照 · 深色模式
+            </p>
+          </div>
+
+          {/* 右上角快捷下載行事曆按鈕 */}
+          <button
+            type="button"
+            onClick={() => downloadICS(weekends, selectedClass)}
+            className="flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3.5 py-2 text-xs font-bold text-white shadow-md transition-all hover:bg-emerald-500 active:scale-95"
+          >
+            📅 下載行事曆 (.ics)
+          </button>
         </div>
       </header>
 
