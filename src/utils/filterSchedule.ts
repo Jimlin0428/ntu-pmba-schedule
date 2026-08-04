@@ -1,27 +1,43 @@
 import type { ClassGroup, Course, ScheduleDay, Grade, Semester } from "../types";
 
+// 將 "10月17日" 解析為可比較的數值，並處理 1151 學期的 1 月（隔年）跨年邏輯
+function getDateWeight(dateStr: string, semester: Semester): number {
+  const match = dateStr.match(/(\d+)月(\d+)日/);
+  if (!match) return 0;
+
+  let month = parseInt(match[1], 10);
+  const day = parseInt(match[2], 10);
+
+  // 在 1151 學期中，1 月是隔年的第一個月份，時間序應排在 12 月之後 (當作 13 月處理)
+  if (semester === "1151" && month === 1) {
+    month = 13;
+  }
+
+  return month * 100 + day;
+}
+
 export function courseMatchesClass(
   course: Course,
   selectedClass: ClassGroup,
 ): boolean {
-  // 解析當前選中的是哪個學程與班別（例如 "PMLBA_A" 會拆出 targetProgram = "PMLBA", targetClass = "A"）
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 🚨【最高優先級 1】行銷管理：只有 PMBA 與 PMBM 可以看，PMLBA 強制剔除！
+  // 1. 行銷管理：只有 PMBA 與 PMBM 可以看，PMLBA 強制剔除！
   if (course.name.includes("行銷管理")) {
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 
-  // 🚨【最高優先級 2】法律/民刑法/行政法專題：只有 PMLBA 可以看！
+  // 2. 法律/民刑法/行政法專題：只有 PMLBA 可以看，其他學程剔除！
   if (
     course.name.includes("民刑法") ||
     course.name.includes("行政法") ||
-    course.classType === "PMLBA"
+    course.name.includes("法務專題") ||
+    (course.name.includes("專題") && course.classType === "PMLBA")
   ) {
     return targetProgram === "PMLBA";
   }
 
-  // 3. 放假、連假或標示全體 (ALL / all)，大家都看得到
+  // 3. 放假、連假或標示全體 (ALL / all)
   if (
     course.isSpecial ||
     course.classType === "ALL" ||
@@ -37,12 +53,12 @@ export function courseMatchesClass(
     return course.classType === targetClass;
   }
 
-  // 5. 學程專屬課程比對（如 classType 為 "PMBA", "PMBM", "PMLBA"）
+  // 5. 比對學程 (PMBA, PMBM, PMLBA)
   if (course.classType === targetProgram) {
     return true;
   }
 
-  // 6. 班別比對（如 classType 為 "A" 或 "B"）
+  // 6. 比對班別 (A, B)
   if (course.classType === targetClass) {
     return true;
   }
@@ -63,7 +79,7 @@ export function filterDayByClass(
   };
 }
 
-/** 依班別、年級、學期篩選所有日期 */
+/** 依班別、年級、學期篩選所有日期並依照「時間先後」精準排序 */
 export function filterAllDaysByClass(
   days: ScheduleDay[],
   selectedClass: ClassGroup,
@@ -77,5 +93,11 @@ export function filterAllDaysByClass(
       return matchGrade && matchSemester;
     })
     .map((day) => filterDayByClass(day, selectedClass))
-    .filter((day) => day.courses.length > 0);
+    .filter((day) => day.courses.length > 0)
+    // 關鍵！依據月份與日期做時間序列排序，確保 1/2、1/3 自動排在 12 月之後！
+    .sort((a, b) => {
+      const weightA = getDateWeight(a.date, selectedSemester);
+      const weightB = getDateWeight(b.date, selectedSemester);
+      return weightA - weightB;
+    });
 }
