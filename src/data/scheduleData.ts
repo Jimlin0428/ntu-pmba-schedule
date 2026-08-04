@@ -1438,3 +1438,67 @@ export const scheduleData: ScheduleDay[] = [
     ]
   }
 ];
+{
+    "date": "10月25日",
+    "day": "Sun",
+    "grade": "114",
+    "semester": "1151",
+    "courses": [
+      {
+        "name": "光復節放假",
+        "teacher": "",
+        "hours": 0,
+        "classroom": "",
+        "classType": "ALL",
+        "isHoliday": true
+      }
+    ]
+  },
+  {
+    "date": "11月28日",
+    "day": "Sat",
+    "grade": "114",
+    "semester": "1151",
+    "courses": [
+      {
+        "name": "選舉放假",
+        "teacher": "",
+        "hours": 0,
+        "classroom": "",
+        "classType": "ALL",
+        "isHoliday": true
+      }
+    ]
+  },
+  {
+    "date": "1月2日",
+    "day": "Sat",
+    "grade": "114",
+    "semester": "1151",
+    "courses": [
+      {
+        "name": "元旦連假",
+        "teacher": "",
+        "hours": 0,
+        "classroom": "",
+        "classType": "ALL",
+        "isHoliday": true
+      }
+    ]
+  },
+  {
+    "date": "1月3日",
+    "day": "Sun",
+    "grade": "114",
+    "semester": "1151",
+    "courses": [
+      {
+        "name": "元旦連假",
+        "teacher": "",
+        "hours": 0,
+        "classroom": "",
+        "classType": "ALL",
+        "isHoliday": true
+      }
+    ]
+  }
