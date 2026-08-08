@@ -21,26 +21,12 @@ export function courseMatchesClass(
 ): boolean {
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 🚨【最高優先級 1】所有放假、連假、國定假日、選舉，不論年級與班別，直接放行顯示！
-  if (
-    course.isSpecial ||
-    course.isHoliday ||
-    course.classType === "ALL" ||
-    course.classType === "all" ||
-    course.name.includes("連假") ||
-    course.name.includes("放假") ||
-    course.name.includes("假") ||
-    course.name.includes("選舉")
-  ) {
-    return true;
-  }
-
-  // 2. 行銷管理：只有 PMBA 與 PMBM 可以看，PMLBA 強制剔除！
+  // 🚨【絕對優先級 1】行銷管理：只有 PMBA 與 PMBM 可以看！即使 classType 寫 ALL，PMLBA 也一律強制剔除！
   if (course.name.includes("行銷管理")) {
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 
-  // 3. 法律/民刑法/行政法專題：只有 PMLBA 可以看，其他學程剔除！
+  // 🚨【絕對優先級 2】法律/民刑法/行政法專題：只有 PMLBA 可以看！其他學程強制剔除！
   if (
     course.name.includes("民刑法") ||
     course.name.includes("行政法") ||
@@ -50,17 +36,34 @@ export function courseMatchesClass(
     return targetProgram === "PMLBA";
   }
 
-  // 4. 財務管理與策略管理：依據 A 班 / B 班 進行篩選
+  // 3. 放假、連假、國定假日、選舉（全體都看得見）
+  if (
+    course.isSpecial ||
+    course.isHoliday ||
+    course.name.includes("連假") ||
+    course.name.includes("放假") ||
+    course.name.includes("假") ||
+    course.name.includes("選舉")
+  ) {
+    return true;
+  }
+
+  // 4. 通用 classType === "ALL" 或 "all" 的普通課程（排除了行銷管理與法律專題之後）
+  if (course.classType === "ALL" || course.classType === "all") {
+    return true;
+  }
+
+  // 5. 財務管理與策略管理：依據 A 班 / B 班 進行篩選
   if (course.name.includes("財務管理") || course.name.includes("策略管理")) {
     return course.classType === targetClass;
   }
 
-  // 5. 比對學程 (PMBA, PMBM, PMLBA)
+  // 6. 比對學程 (PMBA, PMBM, PMLBA)
   if (course.classType === targetProgram) {
     return true;
   }
 
-  // 6. 比對班別 (A, B)
+  // 7. 比對班別 (A, B)
   if (course.classType === targetClass) {
     return true;
   }
