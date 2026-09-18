@@ -284,11 +284,11 @@ export const scheduleData: ScheduleDay[] = [
     "courses": [{ "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBM" }]
   },
   {
-    "date": "11月15日",
+    "date": "11月8日",
     "day": "Sun",
     "grade": "115",
     "semester": "1151",
-    "courses": [{ "name": "策略管理A(8)", "teacher": "陳忠仁", "hours": 8, "classroom": "台北311", "classType": "A" }]
+    "courses": [{ "name": "策略管理A(8)", "teacher": "陳忠仁", "hours": 8, "classroom": "台北207", "classType": "A" }]
   },
   {
     "date": "11月21日",
