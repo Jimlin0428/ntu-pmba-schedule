@@ -510,7 +510,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(8)-停課",
+        "name": "[停課] 組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 8,
         "classroom": "竹北107",
@@ -734,7 +734,7 @@
         "classType": "PMBA"
       },
       {
-        "name": "組織行為(3)-調課",
+        "name": "[調課] 組織行為(3)",
         "teacher": "戚樹誠",
         "hours": 3,
         "classroom": "竹北107",
