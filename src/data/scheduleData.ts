@@ -245,7 +245,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北206", "classType": "PMBM" },
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北206", "classType": "PMBM" },
       { "name": "企業行政法務專題(8)", "teacher": "王能君", "hours": 8, "classroom": "竹北107", "classType": "PMLBA" }
     ]
   },
