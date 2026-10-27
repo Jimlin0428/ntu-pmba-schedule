@@ -510,7 +510,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(8)",
+        "name": "組織行為(8)-停課",
         "teacher": "戚樹誠",
         "hours": 8,
         "classroom": "竹北107",
@@ -563,7 +563,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "竹北206",
@@ -615,7 +615,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "竹北206",
@@ -683,7 +683,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "竹北206",
@@ -727,14 +727,14 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(3)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 3,
         "classroom": "竹北107",
         "classType": "PMBA"
       },
       {
-        "name": "組織行為(3)",
+        "name": "組織行為(3)-調課",
         "teacher": "戚樹誠",
         "hours": 3,
         "classroom": "竹北107",
@@ -862,7 +862,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "竹北206",
@@ -877,7 +877,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "台北311",
@@ -899,7 +899,7 @@
     "semester": "1151",
     "courses": [
       {
-        "name": "組織行為(7)",
+        "name": "組織行為(8)",
         "teacher": "戚樹誠",
         "hours": 7,
         "classroom": "台北311",
