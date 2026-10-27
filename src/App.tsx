@@ -1,3 +1,4 @@
+
 import { useMemo, useState } from "react";
 import ClassSelector from "./components/ClassSelector";
 import WeekendSchedule from "./components/WeekendSchedule";
@@ -24,7 +25,7 @@ function LegendItem({
 
 export default function App() {
   const [selectedGrade, setSelectedGrade] = useState<Grade>("115");
-  const [selectedSemester, setSelectedSemester] = useState<Semester>("1150");
+  const [selectedSemester, setSelectedSemester] = useState<Semester>("1151");
   const [selectedClass, setSelectedClass] = useState<ClassGroup>("PMBA_A");
 
   const weekends = useMemo(() => {
