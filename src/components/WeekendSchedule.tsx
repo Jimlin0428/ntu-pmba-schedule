@@ -2,26 +2,38 @@ import type { Weekend, Course } from "../types";
 
 function CourseCard({ course }: { course: Course }) {
   const isSpecial = course.isSpecial || course.isHoliday;
+  const isCancelled = course.isCancelled === true;
 
   return (
     <div
       className={`rounded-md border p-3 transition-colors ${
-        isSpecial
+        isCancelled
+          ? "border-zinc-800 bg-zinc-900/50 opacity-60"
+          : isSpecial
           ? "border-red-900/60 bg-red-950/30 text-red-200"
           : "border-zinc-700/80 bg-zinc-800/80 hover:border-zinc-600"
       }`}
     >
       <div className="flex items-start justify-between gap-2">
-        <h4 className="text-sm font-semibold text-white">{course.name}</h4>
+        <h4 className="text-sm font-semibold text-white">
+          <span className={isCancelled ? "line-through text-zinc-400" : ""}>
+            {course.name}
+          </span>
+          {isCancelled && (
+            <span className="ml-2 inline-block rounded bg-red-900/70 px-1.5 py-0.5 text-[10px] font-bold text-red-300">
+              停課
+            </span>
+          )}
+        </h4>
         {course.hours > 0 && (
-          <span className="shrink-0 rounded bg-zinc-700/80 px-1.5 py-0.5 text-[10px] text-zinc-300">
+          <span className={`shrink-0 rounded px-1.5 py-0.5 text-[10px] ${isCancelled ? "bg-zinc-800 line-through text-zinc-500" : "bg-zinc-700/80 text-zinc-300"}`}>
             {course.hours}h
           </span>
         )}
       </div>
 
       {(course.teacher || course.classroom) && (
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-400">
+        <div className={`mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs ${isCancelled ? "line-through text-zinc-500" : "text-zinc-400"}`}>
           {course.teacher && <span>👨‍🏫 {course.teacher}</span>}
           {course.classroom && <span>📍 {course.classroom}</span>}
         </div>
