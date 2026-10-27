@@ -18,6 +18,7 @@ export type Course = {
   classType: string;
   isSpecial?: boolean;
   isHoliday?: boolean;
+  isCancelled?: boolean;
 };
 
 export type ScheduleDay = {
