@@ -230,7 +230,7 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1151",
-    "courses": [{ "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北107", "classType": "PMBA" }]
+    "courses": [{ "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北107", "classType": "PMBA" ,"isCancelled": true}]
   },
   {
     "date": "10月25日",
@@ -245,7 +245,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北206", "classType": "PMBM" },
+      { "name": "(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "竹北206", "classType": "PMBM" },
       { "name": "企業行政法務專題(8)", "teacher": "王能君", "hours": 8, "classroom": "竹北107", "classType": "PMLBA" }
     ]
   },
@@ -265,7 +265,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" },
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" },
       { "name": "企業行政法務專題(8)", "teacher": "王能君", "hours": 8, "classroom": "竹北105", "classType": "PMLBA" }
     ]
   },
@@ -281,7 +281,7 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1151",
-    "courses": [{ "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBM" }]
+    "courses": [{ "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBM" }]
   },
   {
     "date": "11月8日",
@@ -295,7 +295,7 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1151",
-    "courses": [{ "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" }]
+    "courses": [{ "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" }]
   },
   {
     "date": "11月28日",
@@ -320,7 +320,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "台北311", "classType": "PMBM" },
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "台北311", "classType": "PMBM" },
       { "name": "企業行政法務專題(8)", "teacher": "柯格鐘", "hours": 8, "classroom": "竹北105", "classType": "PMLBA" }
     ]
   },
@@ -337,7 +337,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" },
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "竹北206", "classType": "PMBA" },
       { "name": "企業行政法務專題(8)", "teacher": "柯格鐘", "hours": 8, "classroom": "竹北105", "classType": "PMLBA" }
     ]
   },
@@ -357,7 +357,7 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(7)", "teacher": "戚樹誠", "hours": 7, "classroom": "台北311", "classType": "PMBM" },
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 7, "classroom": "台北311", "classType": "PMBM" },
       { "name": "企業行政法務專題(8)", "teacher": "柯格鐘", "hours": 8, "classroom": "竹北107", "classType": "PMLBA" }
     ]
   },
@@ -367,8 +367,8 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1151",
     "courses": [
-      { "name": "組織行為(3)", "teacher": "戚樹誠", "hours": 3, "classroom": "竹北107", "classType": "PMBA" },
-      { "name": "組織行為(3)", "teacher": "戚樹誠", "hours": 3, "classroom": "竹北107", "classType": "PMBM" }
+      { "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 3, "classroom": "竹北107", "classType": "PMBA" },
+      { "name": "組織行為(3)", "teacher": "戚樹誠", "hours": 3, "classroom": "竹北107", "classType": "PMBM" ,"isCancelled": true }
     ]
   },
   {
