@@ -17,6 +17,19 @@ function formatDateToICS(year: number, month: number, day: number, hour: number,
   return `${year}${pad(month)}${pad(day)}T${pad(hour)}${pad(minute)}00`;
 }
 
+// 依據學期與月份推算正確西元年（1150 為 2026 年，1151 的 9~12 月為 2026 年、1 月為 2027 年，1152 為 2027 年）
+function getYearForDay(dayObj: { semester?: string; date: string }): number {
+  if (dayObj.semester === "1152") {
+    return 2027;
+  }
+  const match = dayObj.date.match(/(\d+)月/);
+  const month = match ? parseInt(match[1], 10) : 0;
+  if (dayObj.semester === "1151" && month === 1) {
+    return 2027;
+  }
+  return 2026;
+}
+
 export function downloadICS(weekends: Weekend[], selectedClassName: string = "PMBA") {
   let icsContent = [
     "BEGIN:VCALENDAR",
@@ -34,7 +47,8 @@ export function downloadICS(weekends: Weekend[], selectedClassName: string = "PM
     days.forEach((dayObj) => {
       if (!dayObj || !dayObj.courses) return;
 
-      const dateParsed = parseDateString(dayObj.date);
+      const year = getYearForDay(dayObj);
+      const dateParsed = parseDateString(dayObj.date, year);
       if (!dateParsed) return;
 
       dayObj.courses.forEach((course: Course) => {
@@ -43,11 +57,12 @@ export function downloadICS(weekends: Weekend[], selectedClassName: string = "PM
         // 預設上課時間為 09:00 - 16:00
         const startTime = formatDateToICS(dateParsed.year, dateParsed.month, dateParsed.day, 9, 0);
         const endTime = formatDateToICS(dateParsed.year, dateParsed.month, dateParsed.day, 16, 0);
+        const hoursDesc = course.hours ? `${course.hours}小時` : "未定";
 
         icsContent.push(
           "BEGIN:VEVENT",
           `SUMMARY:[台大PM] ${course.name}`,
-          `DESCRIPTION:授課教師：${course.teacher || "無"} | 時數：${course.hours}小時`,
+          `DESCRIPTION:授課教師：${course.teacher || "無"} | 時數：${hoursDesc}`,
           `LOCATION:${course.classroom || "未定"}`,
           `DTSTART;TZID=Asia/Taipei:${startTime}`,
           `DTEND;TZID=Asia/Taipei:${endTime}`,

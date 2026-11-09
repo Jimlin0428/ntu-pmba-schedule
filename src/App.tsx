@@ -39,6 +39,13 @@ export default function App() {
   }, [selectedClass, selectedGrade, selectedSemester]);
 
   const legendItems = useMemo(() => {
+    if (selectedSemester === "1152") {
+      if (selectedClass.startsWith("PMBA") || selectedClass.startsWith("PMBM")) {
+        return "服務與營運管理 · 人工智慧與商業數據分析（不分班） · 連假／特殊";
+      }
+      return "連假／特殊";
+    }
+
     if (selectedClass.startsWith("PMBA")) {
       return selectedClass === "PMBA_A"
         ? "財務/策略 A · 行銷/組織（不分班） · 連假"
@@ -55,7 +62,7 @@ export default function App() {
         : "財務/策略 B · 生醫專題 · 連假";
     }
     return "";
-  }, [selectedClass]);
+  }, [selectedClass, selectedSemester]);
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
@@ -111,7 +118,7 @@ export default function App() {
 
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-zinc-400">學期：</span>
-                {(["1150", "1151"] as Semester[]).map((s) => (
+                {(["1150", "1151", "1152"] as Semester[]).map((s) => (
                   <button
                     key={s}
                     type="button"

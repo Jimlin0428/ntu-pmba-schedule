@@ -21,8 +21,12 @@ export function courseMatchesClass(
 ): boolean {
   const [targetProgram, targetClass] = selectedClass.split("_");
 
-  // 🚨【絕對優先級 1】行銷管理：只有 PMBA 與 PMBM 可以看！即使 classType 寫 ALL，PMLBA 也一律強制剔除！
-  if (course.name.includes("行銷管理")) {
+  // 🚨【絕對優先級 1】行銷管理、服務與營運管理、人工智慧與商業數據分析：只有 PMBA 與 PMBM 可以看！即使 classType 寫 ALL，PMLBA 也一律強制剔除！
+  if (
+    course.name.includes("行銷管理") ||
+    course.name.includes("服務與營運管理") ||
+    course.name.includes("人工智慧與商業數據分析")
+  ) {
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 

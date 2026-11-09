@@ -410,6 +410,155 @@ export const scheduleData: ScheduleDay[] = [
     "courses": [{ "name": "組織行為(8)", "teacher": "戚樹誠", "hours": 8, "classroom": "台北311", "classType": "PMBM" }]
   },
 
+  // ================= 115 級 1152 學期 =================
+  {
+    "date": "2月20日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "2月21日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "2月27日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "228連假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "2月28日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "228連假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "3月6日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "3月14日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "3月20日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "3月28日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "4月3日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "清明連假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "4月4日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "清明連假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "4月10日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "4月17日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "4月18日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "4月25日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "5月1日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "勞動節放假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "5月2日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "勞動節放假", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isHoliday": true }]
+  },
+  {
+    "date": "5月8日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "5月16日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "5月22日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋 / 余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "5月30日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "學院畢典", "teacher": "", "hours": 0, "classroom": "", "classType": "ALL", "isSpecial": true }]
+  },
+  {
+    "date": "6月6日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "魏", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+
   // ================= 114 級 1151 學期 =================
   {
     "date": "9月6日",

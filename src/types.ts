@@ -1,5 +1,5 @@
 export type Grade = "114" | "115";
-export type Semester = "1150" | "1151";
+export type Semester = "1150" | "1151" | "1152";
 
 export type ClassGroup =
   | "PMBA_A"
