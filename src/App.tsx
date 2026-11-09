@@ -43,6 +43,9 @@ export default function App() {
       if (selectedClass.startsWith("PMBA") || selectedClass.startsWith("PMBM")) {
         return "服務與營運管理 · 人工智慧與商業數據分析（不分班） · 連假／特殊";
       }
+      if (selectedClass.startsWith("PMLBA")) {
+        return "人工智慧與商業法制專題 · 企業商事法律專題（不分班） · 連假／特殊";
+      }
       return "連假／特殊";
     }
 

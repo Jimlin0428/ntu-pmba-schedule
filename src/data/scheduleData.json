@@ -956,6 +956,13 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "黃銘傑",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1003,6 +1010,28 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "黃銘傑",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
+      }
+    ]
+  },
+  {
+    "date": "3月13日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "楊岳平",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1033,6 +1062,28 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "企業商事法律專題",
+        "teacher": "汪信君",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
+      }
+    ]
+  },
+  {
+    "date": "3月27日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "楊岳平",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1095,6 +1146,13 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "企業商事法律專題",
+        "teacher": "汪信君",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1110,6 +1168,13 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "企業商事法律專題",
+        "teacher": "汪信君",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1125,6 +1190,21 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      }
+    ]
+  },
+  {
+    "date": "4月24日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "陳皓芸",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1187,6 +1267,13 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "人工智慧與商業法制專題",
+        "teacher": "陳皓芸",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },
@@ -1221,6 +1308,36 @@
     ]
   },
   {
+    "date": "5月23日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [
+      {
+        "name": "企業商事法律專題",
+        "teacher": "邵慶平",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
+      }
+    ]
+  },
+  {
+    "date": "5月29日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [
+      {
+        "name": "企業商事法律專題",
+        "teacher": "邵慶平",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
+      }
+    ]
+  },
+  {
     "date": "5月30日",
     "day": "Sun",
     "grade": "115",
@@ -1248,6 +1365,13 @@
         "hours": 0,
         "classroom": "未定",
         "classType": "ALL"
+      },
+      {
+        "name": "企業商事法律專題",
+        "teacher": "邵慶平",
+        "hours": 0,
+        "classroom": "未定",
+        "classType": "PMLBA"
       }
     ]
   },

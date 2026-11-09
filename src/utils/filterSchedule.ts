@@ -30,11 +30,13 @@ export function courseMatchesClass(
     return targetProgram === "PMBA" || targetProgram === "PMBM";
   }
 
-  // 🚨【絕對優先級 2】法律/民刑法/行政法專題：只有 PMLBA 可以看！其他學程強制剔除！
+  // 🚨【絕對優先級 2】法律/民刑法/行政法/商業法制/商事法律專題：只有 PMLBA 可以看！其他學程強制剔除！
   if (
     course.name.includes("民刑法") ||
     course.name.includes("行政法") ||
     course.name.includes("法務專題") ||
+    course.name.includes("商業法制專題") ||
+    course.name.includes("商事法律專題") ||
     (course.name.includes("專題") && course.classType === "PMLBA")
   ) {
     return targetProgram === "PMLBA";

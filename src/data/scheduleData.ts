@@ -423,7 +423,10 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sun",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "人工智慧與商業法制專題", "teacher": "黃銘傑", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "2月27日",
@@ -444,7 +447,17 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "人工智慧與商業法制專題", "teacher": "黃銘傑", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
+  },
+  {
+    "date": "3月13日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業法制專題", "teacher": "楊岳平", "hours": 0, "classroom": "未定", "classType": "PMLBA" }]
   },
   {
     "date": "3月14日",
@@ -458,7 +471,17 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "服務與營運管理", "teacher": "郭佳瑋", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "企業商事法律專題", "teacher": "汪信君", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
+  },
+  {
+    "date": "3月27日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業法制專題", "teacher": "楊岳平", "hours": 0, "classroom": "未定", "classType": "PMLBA" }]
   },
   {
     "date": "3月28日",
@@ -486,14 +509,20 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "企業商事法律專題", "teacher": "汪信君", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "4月17日",
     "day": "Sat",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "企業商事法律專題", "teacher": "汪信君", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "4月18日",
@@ -501,6 +530,13 @@ export const scheduleData: ScheduleDay[] = [
     "grade": "115",
     "semester": "1152",
     "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+  },
+  {
+    "date": "4月24日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "人工智慧與商業法制專題", "teacher": "陳皓芸", "hours": 0, "classroom": "未定", "classType": "PMLBA" }]
   },
   {
     "date": "4月25日",
@@ -528,7 +564,10 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sat",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "服務與營運管理", "teacher": "余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "人工智慧與商業法制專題", "teacher": "陳皓芸", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
   },
   {
     "date": "5月16日",
@@ -545,6 +584,20 @@ export const scheduleData: ScheduleDay[] = [
     "courses": [{ "name": "服務與營運管理", "teacher": "郭佳瑋 / 余峻瑜", "hours": 0, "classroom": "未定", "classType": "ALL" }]
   },
   {
+    "date": "5月23日",
+    "day": "Sun",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "企業商事法律專題", "teacher": "邵慶平", "hours": 0, "classroom": "未定", "classType": "PMLBA" }]
+  },
+  {
+    "date": "5月29日",
+    "day": "Sat",
+    "grade": "115",
+    "semester": "1152",
+    "courses": [{ "name": "企業商事法律專題", "teacher": "邵慶平", "hours": 0, "classroom": "未定", "classType": "PMLBA" }]
+  },
+  {
     "date": "5月30日",
     "day": "Sun",
     "grade": "115",
@@ -556,7 +609,10 @@ export const scheduleData: ScheduleDay[] = [
     "day": "Sun",
     "grade": "115",
     "semester": "1152",
-    "courses": [{ "name": "人工智慧與商業數據分析", "teacher": "魏", "hours": 0, "classroom": "未定", "classType": "ALL" }]
+    "courses": [
+      { "name": "人工智慧與商業數據分析", "teacher": "魏", "hours": 0, "classroom": "未定", "classType": "ALL" },
+      { "name": "企業商事法律專題", "teacher": "邵慶平", "hours": 0, "classroom": "未定", "classType": "PMLBA" }
+    ]
   },
 
   // ================= 114 級 1151 學期 =================
